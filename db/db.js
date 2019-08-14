@@ -5,5 +5,4 @@ const user =  [
         user_name: "jairist"
       }
 ];
-
-export default user;
+module.exports = user;
