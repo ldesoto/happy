@@ -1,0 +1,20 @@
+DROP TABLE USUARIO;
+DROP TABLE ROL;
+
+CREATE TABLE ROL (
+    ID_ROL      int NOT NULL, 
+    DESCRIPCION varchar(50) NOT NULL, 
+    PRIMARY KEY (ID_ROL)
+);
+CREATE TABLE USUARIO (
+    ID_USUARIO         int NOT NULL AUTO_INCREMENT, 
+    NOMBRE             varchar(100) NOT NULL, 
+    NOMBRE_USUARIO     varchar(100) NOT NULL, 
+    CLAVE              varchar(16) NOT NULL, 
+    ID_SUPERVISOR      int, 
+    ID_USUARIO_CREADOR int NOT NULL, 
+    ID_ROL             int NOT NULL,
+    PRIMARY KEY (ID_USUARIO),
+
+    FOREIGN KEY (ID_ROL) REFERENCES ROL (ID_ROL)
+);
