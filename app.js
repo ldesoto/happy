@@ -1,6 +1,5 @@
 var express = require("express"); 
 var cors = require('cors');
-var db = require('../happy/db/db');
 var app = express();
 const user = require('./api/controllers/UserController');
 
@@ -22,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 //Ejemplo: GET http://localhost:5000/user
 app.get('/user', user.getAllUsers);
 app.get('/user/:id', user.getUser);
+app.post('/user/add', user.addUser);
 
 
 app.listen(port, () => {
