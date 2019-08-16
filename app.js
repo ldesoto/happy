@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.get('/user', user.getAllUsers);
 app.get('/user/:id', user.getUser);
 app.post('/user/add', user.addUser);
+app.delete('/user/delete/:id', user.deleteUser);
 
 
 app.listen(port, () => {
