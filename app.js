@@ -20,7 +20,9 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 //GetAll
 //Ejemplo: GET http://localhost:5000/user
 app.get('/user', user.getAllUsers);
+//GetFiltered
 app.get('/user/:id', user.getUser);
+app.get('/user/filter', user.getUserFiltered);
 app.post('/user/add', user.addUser);
 app.delete('/user/delete/:id', user.deleteUser);
 

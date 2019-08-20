@@ -36,6 +36,30 @@ class UsersController{
             
         }
       }
+      //GetUser Filtered 
+      //todo: Refactorizar metodo. 
+      async getUserFiltered(req, res) {
+        console.log(req.params.filter);
+        const {filter } = req.params;
+        const QUERY_GET_USER_FILTERED_BY = "SELECT * FROM usuario WHERE nombre like '%" + filter+ "'%";
+
+        pool.query(QUERY_GET_USER_FILTERED_BY, (err, rows, fields) => {
+          if (!err) {
+            return res.status(200).send({
+              success:'true',
+              message: 'User retrieve filtered successfully'
+              
+            }).json(rows[0]);
+          } else {
+            return res.status(404).send({
+              success: 'false',
+              message: 'User does not exist',
+            });
+          }
+        });           
+            
+        
+      }
       //NOMBRE, NOMBRE_USUARIO, CLAVE, ID_ROL)
      async addUser(req, res) {
          try {
